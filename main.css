@@ -29,15 +29,15 @@ div {
   flex: 1 25%;
 }
 
-#clear:hover, #evaluator:hover {
+.clear:hover, .evaluator:hover {
   background: #82C276;
 }
 
-#display {
+.display {
   flex: 3 75%;
 }
 
-.num, #clear, #display, #decimalPoint, #evaluator {
+.num, .clear, .display, .decimalPoint, .evaluator {
   background: #61B34F;
   color: white;
 }
