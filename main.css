@@ -1,0 +1,44 @@
+/*button background: #61B34F
+(= and C) button background hover: #82C276
+button color: white
+operator backgrounds: #82C276
+operator color: #4A6D3F
+operator hover: white*/
+
+body {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#calculator {
+  max-width: 40%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div {
+  border: 1px solid white;
+  text-align: center;
+  padding: 5% 0;
+  flex: 1 24%;
+}
+
+div #clear {
+  flex: 1 24.25%;
+}
+
+div #display {
+  flex: 3 73.5%;
+}
+
+.num, #clear, #display, #decimalPoint, #evaluator {
+  background: #61B34F;
+  color: white;
+}
+
+.operator {
+  background: #82C276;
+  color: #4A6D3F;
+}
