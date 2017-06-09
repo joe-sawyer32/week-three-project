@@ -1,5 +1,5 @@
 // var calculator = document.querySelector("#calculator");
-var calcArray = document.querySelectorAll("#calculator>div");
+var buttonArray = document.querySelectorAll("#calculator>div");
 // console.log(calculator);
 // console.log(calcArray);
 
@@ -25,24 +25,31 @@ var equationChars = [];
 // var equal = document.querySelector(".evaluator").textContent;
 // var display = document.querySelector(".display").textContent;
 
-function extractChar(element) {
+// function extractChar(element) {
+//   var type = element.className;
+//   if (type != "clear" && type != "display" && type != "evaluator") {
+//     equationChars.push(element.textContent);
+//   }
+// }
+
+// function addFunctionality(element) {
+//   var type = element.className;
+// }
+
+function setButton(element) {
   var type = element.className;
   if (type != "clear" && type != "display" && type != "evaluator") {
     equationChars.push(element.textContent);
+    element.addEventListener("click", function() {});
   }
 }
 
-function addFunctionality(element) {
-  var type = element.className;
+for (let i = 0; i < buttonArray.length; i++) {
+  var button = buttonArray[i];
+  setButton(button);
+  // extractChar(button);
+  // addFunctionality(button);
+  console.log(equationChars);
 }
 
-function setButtons(array) {
-  for (let i = 0; i < array.length; i++) {
-    var button = array[i];
-    extractChar(button);
-    addFunctionality(button);
-    console.log(equationChars);
-  }
-}
-
-setButtons(calcArray);
+// setButtons(calcArray);
