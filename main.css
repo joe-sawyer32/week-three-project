@@ -35,6 +35,8 @@ div {
 
 .display {
   flex: 3 75%;
+  text-align: right;
+  padding-right: 5%;
 }
 
 .num, .clear, .display, .decimalPoint, .evaluator {
