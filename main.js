@@ -1,44 +1,7 @@
-// var calculator = document.querySelector("#calculator");
 var buttonArray = document.querySelectorAll("#calculator>div");
-// console.log(calculator);
-// console.log(calcArray);
 var display = document.querySelector(".display");
 
-// var numDivs = calculator.querySelectorAll(".num");
-// var opDivs = calculator.querySelectorAll(".operator");
-// var decimal = calculator.querySelector(".decimalPoint");
-
-var equationChars = [];
 var theEquation = "";
-
-// function extractEquationChars(selector) {
-//   var array = calculator.querySelectorAll(selector);
-//   for (let i = 0; i < array.length; i++) {
-//     equationChars.push(array[i].textContent);
-//   }
-// }
-
-// extractEquationChars(".num");
-// extractEquationChars(".operator");
-// extractEquationChars("#decimalPoint");
-
-// var clear = document.querySelector(".clear").textContent;
-// console.log(clear);
-// var equal = document.querySelector(".evaluator").textContent;
-// var display = document.querySelector(".display").textContent;
-
-// function extractChar(element) {
-//   var type = element.className;
-//   if (type != "clear" && type != "display" && type != "evaluator") {
-//     equationChars.push(element.textContent);
-//   }
-// }
-
-// function addFunctionality(element) {
-//   var type = element.className;
-// }
-
-// function toDisplay(string) {}
 
 // *********************
 
@@ -49,24 +12,37 @@ function clearEquation() {
 
 function calculate() {}
 
-function addToEquation(char) {
-  console.log(char);
+function addToEquation(element) {
+  var button = element;
+  var buttonType = button.className;
+  if (buttonType == "operator") {
+    //   if (theEquation.length > 0) {
+    //     let lastIndex = theEquation.length - 1;
+    //     let lastChar = theEquation[lastIndex];
+    //     if (
+    //       lastChar == "x" ||
+    //       lastChar == "/" ||
+    //       lastChar == "-" ||
+    //       lastChar == "+"
+    //     ) {
+    //       theEquation = theEquation.substr(0, lastIndex);
+    //     }
+    //   }
+  }
   theEquation += char;
-  console.log(theEquation);
   display.textContent = theEquation;
 }
 
 function setButton(element) {
-  var buttonType = element.className;
-  var buttonChar = element.textContent;
+  var button = element;
+  var buttonType = button.className;
   if (buttonType == "clear") {
-    element.addEventListener("click", clearEquation);
+    button.addEventListener("click", clearEquation);
   } else if (buttonType == "evaluator") {
-    element.addEventListener("click", calculate);
+    button.addEventListener("click", calculate);
   } else {
-    equationChars.push(buttonChar);
-    element.addEventListener("click", function() {
-      addToEquation(buttonChar);
+    button.addEventListener("click", function() {
+      addToEquation(button);
     });
   }
 }
@@ -74,9 +50,4 @@ function setButton(element) {
 for (let i = 0; i < buttonArray.length; i++) {
   var button = buttonArray[i];
   setButton(button);
-  // extractChar(button);
-  // addFunctionality(button);
-  //   console.log(equationChars);
 }
-
-// setButtons(calcArray);
