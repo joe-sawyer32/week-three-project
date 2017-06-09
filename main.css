@@ -5,6 +5,10 @@ operator backgrounds: #82C276
 operator color: #4A6D3F
 operator hover: white*/
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-size: 2rem;
   display: flex;
@@ -22,15 +26,15 @@ div {
   border: 1px solid white;
   text-align: center;
   padding: 5% 0;
-  flex: 1 24%;
+  flex: 1 25%;
 }
 
-div #clear {
-  flex: 1 24.25%;
+#clear:hover, #evaluator:hover {
+  background: #82C276;
 }
 
-div #display {
-  flex: 3 73.5%;
+#display {
+  flex: 3 75%;
 }
 
 .num, #clear, #display, #decimalPoint, #evaluator {
@@ -41,4 +45,8 @@ div #display {
 .operator {
   background: #82C276;
   color: #4A6D3F;
+}
+
+.operator:hover {
+  color: white;
 }
