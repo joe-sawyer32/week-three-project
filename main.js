@@ -17,15 +17,23 @@ function calculate() {
   display.textContent = theEquation;
 }
 
-function trimStrings() {
+function trimStrings(lastIndex) {
   theEquation = theEquation.substr(0, lastIndex);
   decimalString = decimalString.substr(0, lastIndex);
 }
 
 function addToStrings(char) {
   theEquation += char;
-  decimalString += char;
+  if (char == "x" || char) decimalString += char;
   display.textContent = theEquation;
+}
+
+function canAddDecimal() {
+  for (let i = 0; i < decimalString.length; i++) {
+    if (decimalString[i] == ".") {
+      return false;
+    }
+  }
 }
 
 function addToEquation(element) {
@@ -47,25 +55,48 @@ function addToEquation(element) {
 
   //     display.textContent = theEquation;
   //   }
+
   if (theEquation.length == 0) {
     if (thisChar != "x" && thisChar != "/" && thisChar != "+") {
-      addToStrings(char);
+      addToStrings(thisChar);
     }
   } else {
     var lastIndex = theEquation.length - 1;
     var lastChar = theEquation[lastIndex];
 
     switch (lastChar) {
-      case "+" || "*" || "/":
+      case "+":
+      case "x":
+      case "/":
         if (buttonType == "num" || thisChar == "." || thisChar == "-") {
           addToStrings(thisChar);
         } else {
-          trimStrings();
+          trimStrings(lastIndex);
           addToStrings(thisChar);
         }
         break;
-
+      case ".":
+        if (buttonType == "num") {
+          addToStrings(thisChar);
+        }
+        break;
+      case "-":
+        // if (buttonType == "num" || thisChar == "." || thisChar == "-") {
+        //   addToStrings(thisChar);
+        // } else {
+        //   trimStrings(lastIndex);
+        //   addToStrings(thisChar);
+        // }
+        break;
       default:
+        if (thisChar == ".") {
+          console.log("MADE IT THIS FAR");
+          if (canAddDecimal()) {
+            addToStrings(thisChar);
+          }
+        } else {
+          addToStrings(thisChar);
+        }
         break;
     }
   }
