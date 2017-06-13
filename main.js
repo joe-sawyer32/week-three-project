@@ -22,13 +22,15 @@ function calculate() {
 function addToEquation(char) {
   theEquation += char;
   console.log(theEquation);
-  if (char == "+" || char == "x" || char == "/") {
+  display.textContent = theEquation;
+}
+
+function updateDecimalString(char) {
+  if (char == "") {
     decimalString = "";
   } else {
     decimalString += char;
   }
-  console.log(decimalString);
-  display.textContent = theEquation;
 }
 
 function canAddDecimal() {
@@ -50,13 +52,28 @@ function handleOperator(op) {
   if (decimalString.length == 0) {
     if (op.id == "sub") {
       addToEquation(op.textContent);
+    } else {
+      var lastChar = theEquation[length - 1];
+      if (
+        lastChar == "*" ||
+        lastChar == "/" ||
+        lastChar == "+" ||
+        lastChar == "-"
+      ) {
+      }
     }
   } else {
-    var lastChar = theEquation[length - 1];
-    switch (lastChar) {
-      case "*":
-      case "/":
-      case "+":
+    switch (decimalString[length - 1]) {
+      case "0":
+      case "1":
+      case "2":
+      case "3":
+      case "4":
+      case "5":
+      case "6":
+      case "7":
+      case "8":
+      case "9":
         break;
 
       default:
@@ -142,15 +159,22 @@ function setButton(element) {
   var button = element;
   var buttonType = button.className;
   if (buttonType == "clear") {
-    button.addEventListener("click", clearEquation);
+    button.addEventListener("click", function() {
+      clearEquation();
+    });
   } else if (buttonType == "evaluator") {
-    button.addEventListener("click", calculate);
+    button.addEventListener("click", function() {
+      calculate();
+    });
   } else if (buttonType == "num") {
     button.addEventListener("click", function() {
       addToEquation(button.textContent);
+      updateDecimalString(button.textContent);
     });
   } else if (buttonType == "decimalPoint") {
-    button.addEventListener("click", handleDecimal);
+    button.addEventListener("click", function() {
+      handleDecimal();
+    });
   } else if (buttonType == "operator") {
     button.addEventListener("click", function() {
       handleOperator(button);
