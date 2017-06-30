@@ -10,14 +10,14 @@ operator hover: white*/
 }
 
 body {
-  font-size: 4rem;
+  font-size: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #calculator {
-  max-width: 40%;
+  max-width: 30%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -25,7 +25,7 @@ body {
 div {
   border: 1px solid white;
   text-align: center;
-  padding: 5% 0;
+  padding: 10% 0;
   flex: 1 25%;
 }
 
