@@ -1,0 +1,55 @@
+/*button background: #61B34F
+(= and C) button background hover: #82C276
+button color: white
+operator backgrounds: #82C276
+operator color: #4A6D3F
+operator hover: white*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#calculator {
+  max-width: 30%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div {
+  border: 1px solid white;
+  text-align: center;
+  padding: 10% 0;
+  flex: 1 25%;
+}
+
+.clear:hover, .evaluator:hover {
+  background: #82C276;
+}
+
+.display {
+  flex: 3 75%;
+  text-align: right;
+  padding-right: 5%;
+  letter-spacing: .25rem;
+}
+
+.num, .clear, .display, .decimalPoint, .evaluator {
+  background: #61B34F;
+  color: white;
+}
+
+.operator {
+  background: #82C276;
+  color: #4A6D3F;
+}
+
+.operator:hover {
+  color: white;
+}
