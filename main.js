@@ -13,8 +13,14 @@ function clearEquation() {
 }
 
 function calculate() {
-  var result;
+  // some equation cleanup for eval function
+  theEquation = theEquation.replace(/x/g, "*");
+  theEquation = theEquation.replace(/--/g, "+");
+  console.log("the equation to solve: ", theEquation);
+  var result = eval(theEquation);
   theEquation = result;
+  updateDecimalString("");
+  updateDecimalString(result);
   display.textContent = theEquation;
 }
 
